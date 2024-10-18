@@ -7,7 +7,7 @@ The goal of this project was to improve my understanding of Rust's systems progr
 
 [Software Demo Video] 
 
-https://github.com/colema01/Employee-Management
+https://github.com/colema01/AES-Encryption
 
 Development Environment
 I used Visual Studio Code as my primary tool for writing and running the Rust code. The project was managed and compiled using Cargo, Rust’s build system and package manager. Additionally, I employed GitHub to track code changes and manage the project.
