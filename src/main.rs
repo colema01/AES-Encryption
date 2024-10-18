@@ -25,7 +25,6 @@ fn pad_data(data: &[u8]) -> Vec<u8> {
 
 // Function to remove padding after decryption
 fn unpad_data(data: &[u8]) -> Vec<u8> {
-    // Get the last byte which indicates the length of the padding
     let padding_len = *data.last().unwrap() as usize;
 
     // Remove the padding bytes and return the unpadded data
@@ -34,14 +33,12 @@ fn unpad_data(data: &[u8]) -> Vec<u8> {
 
 // Function to encrypt data using AES-256
 fn encrypt_aes(key: &[u8], data: &[u8]) -> Vec<u8> {
-    // Create the AES key from the provided slice
     let key = GenericArray::from_slice(key);
     let cipher = Aes256::new(key); // Initialize the AES-256 cipher with the key
 
-    // Pad the data so its length is a multiple of 16 bytes (required for AES)
+    // Pad the data so its length is a multiple of 16 bytes 
     let data = pad_data(data);
 
-    // Buffer to store the encrypted data
     let mut buffer = Vec::new();
 
     // Encrypt each 16-byte chunk of data
@@ -57,7 +54,7 @@ fn encrypt_aes(key: &[u8], data: &[u8]) -> Vec<u8> {
 
 // Function to decrypt data using AES-256
 fn decrypt_aes(key: &[u8], encrypted_data: &[u8]) -> Vec<u8> {
-    // Create the AES key from the provided slice
+
     let key = GenericArray::from_slice(key);
     let cipher = Aes256::new(key); // Initialize the AES-256 cipher with the key
 
